@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy N Sell</title>
+</head>
+<body>
+    <% let source = "/profilePics/unknown.jpg"; if (doc.picture){ source='/profilePics/'+doc.picture } %>
+
+    <img src= <%= source %> ><br>
+    <% if(edit){ %>
+        <form method="GET" action='/update'>
+            <input type="hidden" name="id" value= <%=doc.username %>>
+            <button type="submit" >edit profile</button>
+        </form>
+    
+    <% }%> 
+</body>
+</html>

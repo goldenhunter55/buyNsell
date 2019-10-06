@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Buy N Sell</title>
+</head>
+    
+<body>
+    <form method="POST" action="/sell" enctype="multipart/form-data">
+        <img type="image" name="insert_img" src="" alt="no image." onload="changeValue()" height="200">  <br>
+        model 
+            <input type="hidden" name="loaded" value="0">
+            <input type="file" onchange="previewFile()" name="fileup"> <br>
+            <select name="model">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+        </select><br>
+        <input type="number" placeholder="year" value="2000" name="year"><br>
+        <input type="text" width="150" height="250" placeholder="describe the car" name="desc"> <br>
+        <button type="submit" name="submit">submit</button>
+    </form>
+    <script type="text/javascript">
+        function previewFile() {
+            const img = document.querySelector('img');
+            const file = document.querySelector('input[type=file]').files[0];
+            let reader = new FileReader();
+
+            reader.onload = () => {
+                img.src = reader.result;
+            }
+            if (file) {
+                reader.readAsDataURL(file);
+            }
+            else {
+                img.src = "";
+            }
+        }
+        function changeValue(){
+            let hidden = document.querySelector('input[type=hidden]');
+            hidden.value = "1";
+        }
+        previewFile();
+    </script>
+</body>
+
+</html>
